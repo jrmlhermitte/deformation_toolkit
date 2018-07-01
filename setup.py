@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import setuptools
 from distutils.core import setup, Extension
 import versioneer
@@ -7,17 +6,16 @@ import os
 import sys
 import importlib
 
+import numpy as np
+
 
 setup(
     name='deformation_toolkit',
-    version=versioneer.get_version(),
-    cmdclass=versioneer.get_cmdclass(),
     author='Julien Lhermitte',
     description="Deformation toolkit",
     packages=setuptools.find_packages(exclude=['doc']),
     include_dirs=[np.get_include()],
     install_requires=['six', 'numpy'],  # essential deps only
-    ext_modules=c_ext() + cython_ext(),
     url='http://github.com/jrmlhermitte/deformation_toolkit',
     keywords='Xray Deformation',
     license='BSD',
